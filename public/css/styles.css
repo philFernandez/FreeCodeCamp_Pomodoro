@@ -1,8 +1,36 @@
 html {
   font-size: 10px; }
 
+body {
+  margin: 0;
+  min-width: 413px;
+  background-color: darkgrey; }
+
 header {
   font-size: 3rem;
   font-family: "Englebert", sans-serif;
   margin: 0 auto;
   text-align: center; }
+
+main {
+  height: 50rem;
+  background-color: lightgrey;
+  display: flex; }
+
+.worktime-slider, .breaktime-slider {
+  position: absolute;
+  height: 50rem; }
+
+.worktime-slider {
+  left: 90%; }
+
+.worktime-readout {
+  left: 95%;
+  position: absolute; }
+
+.breaktime-slider {
+  left: 10%; }
+
+.breaktime-readout {
+  left: 5%;
+  position: absolute; }
