@@ -1,0 +1,23 @@
+//fonts
+$timer-font: 'Courier New';
+$header-font: 'Englebert', sans-serif;
+
+//font sizes
+$timer-size: 20rem;
+$header-size: 3rem;
+
+// positions
+$header-margin: 0 auto;
+
+
+html {
+  font-size: 10px;
+}
+
+header {
+  font-size: $header-size;
+  font-family: $header-font;
+  margin: $header-margin;
+  text-align: center;
+}
+
