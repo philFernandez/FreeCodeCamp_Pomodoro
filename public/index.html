@@ -3,31 +3,43 @@
 
 <head>
   <meta charset="UTF-8">
-  <title></title>
-  <link href="https://fonts.googleapis.com/css?family=Englebert" rel="stylesheet">
-  <link rel="stylesheet" href="./css/jquery-ui.min.css">
-  <link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
-  <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">
+  <title>Learn Jquery</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
+
 <body>
   <header>
-    <h1>Pomodoro Timer</h1>
+    <h1>Pomodoro</h1>
   </header>
   <main>
-    <div class="worktime-slider"></div>
-    <p class="worktime-readout"></p>
-    <div class="breaktime-slider"></div>
-    <p class="breaktime-readout"></p>
-    <p class="timer"></p>
+    <article>
+
+      <div class="column">
+        <h2>Choose Your Work Interval</h2>
+        <input type="range" min="1" max="30" value="25">
+        <p></p>
+      </div>
+
+      <div class="column2">
+        <h2>Choose Your Break Interval</h2>
+        <input type="range" min="1" max="30" value="5">
+        <p></p>
+      </div>
+
+      <div class="buttonContainer">
+        Start!
+      </div>
+
+      <div class='timer'>
+      </div>
+    </article>
   </main>
-  <script src="./js/jquery-3.3.1.min.js"></script>
-  <script src="./js/timer.jquery.min.js"></script>
-  <script src="./js/jquery-ui.min.js"></script>
-  <script src="./js/app.js"></script>
 
-
+  <script src='./js/jquery-3.3.1.min.js'></script>
+  <script src='./js/timer.jquery.min.js'></script>
+  <script src='./js/app.js'></script>
 </body>
+
 
 </html>
