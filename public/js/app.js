@@ -26,72 +26,89 @@ $('input').on('change mousemove', function() {
     $('.column2 p').text(breakSliderValue + ' minutes');
   }
 });
-// function(){} same as () =>{}
+
+(function() {
+  // need to declare countdown outside of timerFunction so that the input change
+  // event, and the buttonContainer click event have access to it for clearing
+  // the timer when the user wants to stop the timer and make adjustments.
+  var countdown;
+  // pause controls whether or not the timer will be in a running state
+  var pause = true;
+  // lets the start/stop click action know whether or not to start a new timer
+  // or just pause/unpause the current timer
+  let newSliderValues = true;
+
+  $('input').change(() => {
+    // if slider(s) are changed while timer is paused, re-initialize
+    // timer, and set flag newSliderValues so buttonContainer click event
+    // knows to start a new timer with the new slider values
+    clearInterval(countdown)
+    newSliderValues = true;
+  });
+
+  $('.buttonContainer').on('click', () => {
+    // on first run pause is set to true above, this sets it to false on first
+    // button click so that the timer runs. subsequent clicks toggle the run
+    // state of the timer.
+    pause = pause ? false : true;
 
 
-// need to declare countdown outside of timerFunction so that the input change
-// event, and the buttonContainer click event have access to it for clearing
-// the timer when the user wants to stop the timer and make adjustments.
-var countdown;
-// pause controls whether or not the timer will be in a running state
-var pause = true;
-
-$('input').change(() => { clearInterval(countdown) });
-
-$('.buttonContainer').on('click', () => {
-  // start with a fresh timer on first click, and refresh timer on subsequent
-  // clicks
-  clearInterval(countdown);
-  // on first run pause is set to true above, this sets it to false on first
-  // button click so that the timer runs. subsequent clicks toggle the run
-  // state of the timer.
-  pause = pause ? false : true;
-  // get boolean value of disabled property of sliders
-  let sliderState = $('input').prop('disabled');
-  // toggle that value, so that sliders are enabled when timer is paused
-  $('input').prop('disabled', !sliderState);
-
-  timerFunction(workSliderValue, 'work');
-});
-
-
-
-// timer implemented from javascript
-function timerFunction(timeInMinutes, whichTimer) {
-  let seconds = timeInMinutes * 60;
-  countdown = setInterval(() => {
-    /**
-     * if pause is false, run as usual. if pause is true all of the state below
-     * here is kept the same, while the logic does not run, but rather
-     * continues to return. when pause becomes false again the timer pics up
-     * where it left off.
-     */
-    if (pause)
-      return;
-    if (seconds >= 0) {
-      // tenary checks if secondsRemaining in the current minute is less than
-      // 10. If it is, then append a 0 and, if not do nothing
-      let secondsRemaining = ((seconds % 60) < 10) ? '0' + (seconds % 60) : (seconds % 60);
-      let minutesRemaining = Math.floor(seconds/60);
-      $('.timer').text(minutesRemaining + ':' + secondsRemaining);
-      $('title').text(minutesRemaining + ':' + secondsRemaining);
-      seconds--;
+    // if new slider values have been entered, then call the timerFunction with
+    // the new parameters
+    if (newSliderValues) {
+      newSliderValues = false;
+      timerFunction(workSliderValue, 'work');
     }
-    else {
-      if (whichTimer == 'work') {
-        //alert('Break Time!');
-        clearInterval(countdown);
-        timerFunction(breakSliderValue, 'break');
+
+    // Make the sliders inactive when timer is running and vice versa
+    // get boolean value of disabled property of sliders
+    let sliderState = $('input').prop('disabled');
+    // toggle that value, so that sliders are enabled when timer is paused
+    $('input').prop('disabled', !sliderState);
+
+  });
+
+
+
+  // timer implemented from javascript
+  function timerFunction(timeInMinutes, whichTimer) {
+    let seconds = timeInMinutes * 60;
+    countdown = setInterval(() => {
+      /**
+       * if pause is false, run as usual. if pause is true all of the state below
+       * here is kept the same, while the logic does not run, but rather
+       * continues to return. when pause becomes false again the timer pics up
+       * where it left off.
+       */
+      console.log('i do :(');
+      if (pause)
+        return;
+      if (seconds >= 0) {
+        // tenary checks if secondsRemaining in the current minute is less than
+        // 10. If it is, then append a 0 and, if not do nothing
+        let secondsRemaining = ((seconds % 60) < 10) ? '0' + (seconds % 60) : (seconds % 60);
+        let minutesRemaining = Math.floor(seconds/60);
+        $('.timer').text(minutesRemaining + ':' + secondsRemaining);
+        $('title').text(minutesRemaining + ':' + secondsRemaining);
+        seconds--;
       }
       else {
-        //alert('Back To Work!');
-        clearInterval(countdown);
-        timerFunction(workSliderValue, 'work');
+        if (whichTimer == 'work') {
+          //alert('Break Time!');
+          clearInterval(countdown);
+          timerFunction(breakSliderValue, 'break');
+        }
+        else {
+          //alert('Back To Work!');
+          clearInterval(countdown);
+          timerFunction(workSliderValue, 'work');
+        }
       }
-    }
 
-  }, 200); // set to 1000 when done testing
-}
+    }, 200); // set to 1000 when done testing
+  }
+
+}());
 
 /**
  * listen for clicks on actual timer
