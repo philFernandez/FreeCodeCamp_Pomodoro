@@ -45,6 +45,15 @@ h2 {
 
 .timer {
   border: 1px solid black;
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
   font-size: 3rem;
   text-align: center; }
+
+div:nth-of-type(5) {
+  border: 3px solid black; }
+
+.progressBar {
+  border: 1px solid black;
+  background-color: green;
+  height: 4rem;
+  width: 1%; }

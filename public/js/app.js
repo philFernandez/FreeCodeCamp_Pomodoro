@@ -42,7 +42,7 @@ $('input').on('change mousemove', function() {
     // if slider(s) are changed while timer is paused, re-initialize
     // timer, and set flag newSliderValues so buttonContainer click event
     // knows to start a new timer with the new slider values
-    clearInterval(countdown)
+    clearInterval(countdown);
     newSliderValues = true;
   });
 
