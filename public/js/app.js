@@ -98,6 +98,8 @@ $('input').on('change mousemove', function() {
         $('.timer').text(minutesRemaining + ':' + secondsRemaining);
         $('title').text(minutesRemaining + ':' + secondsRemaining);
         seconds--;
+
+
         // progress bar ====================================
         // prevent value for width of progress bar from being rounded above 100
         if (progressCounter > 99)
@@ -111,13 +113,21 @@ $('input').on('change mousemove', function() {
       }
       else {
         if (whichTimer == 'work') {
-          //alert('Break Time!');
           clearInterval(countdown);
+          // make sure progress bar is at 0 when switching to break interval
+          // before changing color
+          $('.progressBar').width('0%');
+          // change progress bar color to red for break interval
+          $('.progressBar').css('background-color', 'red');
           timerFunction(breakSliderValue, 'break');
         }
         else {
-          //alert('Back To Work!');
           clearInterval(countdown);
+          // make sure progress bar is at 0 when switching to work interval
+          // before changing color
+          $('.progressBar').width('0%');
+          // change progress bar color to green for work interval
+          $('.progressBar').css('background-color', 'green');
           timerFunction(workSliderValue, 'work');
         }
       }
