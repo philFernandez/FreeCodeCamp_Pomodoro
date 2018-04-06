@@ -68,11 +68,18 @@ $('input').on('change mousemove', function() {
 
   });
 
-
-
   // timer implemented from javascript
   function timerFunction(timeInMinutes, whichTimer) {
     let seconds = timeInMinutes * 60;
+
+    // progress bar ====================================
+    // start progress bar at 0
+    let progressCounter = 0;
+    // this is the amount to increment the progress bar each second, so that it
+    // is proportional to the countdown timer.
+    let progressIncrementer = 100/seconds;
+    // =================================================
+
     countdown = setInterval(() => {
       /**
        * if pause is false, run as usual. if pause is true all of the state below
@@ -91,6 +98,16 @@ $('input').on('change mousemove', function() {
         $('.timer').text(minutesRemaining + ':' + secondsRemaining);
         $('title').text(minutesRemaining + ':' + secondsRemaining);
         seconds--;
+        // progress bar ====================================
+        // prevent value for width of progress bar from being rounded above 100
+        if (progressCounter > 99)
+          progressCounter = 100;
+        else
+          progressCounter += progressIncrementer;
+
+        console.log(progressCounter);
+        $('.progressBar').width(progressCounter+'%');
+        // =================================================
       }
       else {
         if (whichTimer == 'work') {
@@ -109,25 +126,6 @@ $('input').on('change mousemove', function() {
   }
 
 }());
-
-/**
- * listen for clicks on actual timer
- * to pause timer and unlock sliders
-$('.timer').click(() => {
-
-  // toggle boolean pause value for countdown timer
-  pause = pause ? false : true;
-
-  // get boolean value of disabled property of sliders
-  let sliderState = $('input').prop('disabled');
-  // toggle that value, so that sliders are enabled when timer is paused
-  $('input').prop('disabled', !sliderState);
-
-});
-
-
-*/
-
 
 
 
