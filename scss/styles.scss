@@ -4,7 +4,8 @@ $headerFont: 'Pacifico', cursive;
 $bodyColor: #8cada7;
 $allTypefaceColor: #110b11;
 $buttonColor: #a5d0a8;
-//$buttonColor: #b7990d;
+$sliderColor: #b7990d;
+$sliderFocusColor: #756108;
 
 // Make all boxes width and height include padding border and margin
 // =================================================================
@@ -39,14 +40,44 @@ h2 {
 }
 
 
-//input[type=range]::-moz-focus-outer {
-  //border: 0;
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
+
+//input[type=range] {
+  ////-webkit-appearance: none;
+  //width: 75%;
 //}
 
 input[type=range] {
-  -webkit-appearance: none;
+  //border: 0.1rem solid $bodyColor;
+  // width of container that holds track
   width: 75%;
 }
+
+input[type=range]::-moz-range-track {
+  // width of track itself
+  width: 100%;
+  height: 0.5rem;
+  background: $sliderColor;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: $buttonColor;
+}
+
+
+input[type=range]:focus::-moz-range-track {
+  background: $sliderFocusColor;
+}
+
+
 
 .column {
   float: left;
@@ -88,7 +119,7 @@ a {
 
 .timer {
   margin: 0 auto 4rem auto;
-  font-size: 3rem;
+  font-size: 6rem;
   text-align: center;
 }
 
