@@ -1,4 +1,10 @@
-$bodyColor: green;
+$bodyFont: 'Quicksand', sans-serif;
+$headerFont: 'Pacifico', cursive;
+
+$bodyColor: #8cada7;
+$allTypefaceColor: #110b11;
+$buttonColor: #a5d0a8;
+//$buttonColor: #b7990d;
 
 // Make all boxes width and height include padding border and margin
 // =================================================================
@@ -12,12 +18,16 @@ html {
   box-sizing: inherit;
 }
 // =================================================================
+
+
 body {
-  //margin: 0;
+  color: $allTypefaceColor;
+  background-color: $bodyColor;
+  font-family: $bodyFont;
 }
 
 h1 {
-  border: 1px solid black;
+  font-family: $headerFont;
   font-size: 3.6rem;
   margin: 4rem 0 4rem 0;
   text-align: center;
@@ -28,6 +38,10 @@ h2 {
   font-size: 2rem;
 }
 
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
 
 .column {
   float: left;
@@ -41,7 +55,6 @@ h2 {
 
 .column, .column2 {
   margin-bottom: 4rem;
-  border: 1px solid black;
   text-align: center;
 }
 
@@ -49,22 +62,26 @@ h2 {
   font-size: 3rem;
 }
 
+a {
+  outline: 0;
+  text-decoration: none;
+  color: $allTypefaceColor;
+}
+
+
 .buttonContainer {
   clear: both;
   margin: 0 auto 4rem auto;
   border-radius: 5rem / 6rem;
-  //border: 1px solid black;
   text-align: center;
   font-size: 2rem;
   padding-top: 1.1rem;
   width: 15rem;
   height: 5rem;
-
-  background-color: pink;
+  background-color: $buttonColor;
 }
 
 .timer {
-  border: 1px solid black;
   margin: 0 auto 4rem auto;
   font-size: 3rem;
   text-align: center;
@@ -76,12 +93,15 @@ h2 {
 // keeping a static border
 div:nth-of-type(5) {
   border: 3px solid black;
+  border-radius: 1rem;
+  padding: 0.3rem;
 }
 
 // this is to be animated via the width property
 // in accordance with the countdown timer (jQuery)
 .progressBar {
-  border: 1px solid black;
+  border: none;
+  border-radius: 1rem;
   background-color: green;
   height: 4rem;
   width: 0%;

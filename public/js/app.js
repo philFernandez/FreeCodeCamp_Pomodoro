@@ -132,7 +132,7 @@ $('input').on('change mousemove', function() {
         }
       }
 
-    }, 200); // set to 1000 when done testing
+    }, 1000); // set to 1000 when done testing
   }
 
 }());
