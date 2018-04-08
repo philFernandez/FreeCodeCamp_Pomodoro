@@ -9,6 +9,8 @@ $buttonColor: #a5d0a8;
 $sliderColor: #b7990d;
 $sliderFocusColor: #756108;
 
+$shadow: 0.1rem 0.1rem  0.5rem $allTypefaceColor;
+
 // define styles for slider track one time
 // apply to all browsers below
 @mixin track() {
@@ -18,6 +20,7 @@ $sliderFocusColor: #756108;
   background: $sliderColor;
   border: none;
   border-radius: 0.3rem;
+  box-shadow: $shadow;
 }
 
 // mixin for slider thumb styles
@@ -33,6 +36,7 @@ $sliderFocusColor: #756108;
 @mixin sliderFocus() {
   background: $sliderFocusColor;
 }
+
 
 // Make all boxes width and height include padding border and margin
 // =================================================================
@@ -130,20 +134,23 @@ input {
 a {
   outline: 0;
   text-decoration: none;
-  color: $allTypefaceColor;
+  color: $buttonColor;
 }
 
 .buttonContainer {
   clear: both;
+  opacity: 0.8;
+  box-shadow: $shadow;
   margin: 0 auto 4rem auto;
   border-radius: 5rem / 6rem;
   text-align: center;
   font-size: 2rem;
-  padding-top: 1.1rem;
+  padding-top: 1.3rem;
   width: 15rem;
   height: 5rem;
-  background-color: $buttonColor;
+  background-color: $sliderColor;
 }
+
 
 .timer {
   margin: 0 auto 4rem auto;
@@ -169,3 +176,4 @@ div:nth-of-type(5) {
   height: 4rem;
   width: 0%;
 }
+

@@ -57,7 +57,7 @@ $('input').on('change mousemove', function() {
     // the new parameters
     if (newSliderValues) {
       newSliderValues = false;
-      timerFunction(workSliderValue, 'work');
+      timerFunction(workSliderValue, 'Work');
     }
 
     // Make the sliders inactive when timer is running and vice versa
@@ -111,14 +111,14 @@ $('input').on('change mousemove', function() {
         // =================================================
       }
       else {
-        if (whichTimer == 'work') {
+        if (whichTimer == 'Work') {
           clearInterval(countdown);
           // make sure progress bar is at 0 when switching to break interval
           // before changing color
           $('.progressBar').width('0%');
           // change progress bar color to red for break interval
           $('.progressBar').css('background-color', 'red');
-          timerFunction(breakSliderValue, 'break');
+          timerFunction(breakSliderValue, 'Break');
         }
         else {
           clearInterval(countdown);
@@ -127,11 +127,11 @@ $('input').on('change mousemove', function() {
           $('.progressBar').width('0%');
           // change progress bar color to green for work interval
           $('.progressBar').css('background-color', 'green');
-          timerFunction(workSliderValue, 'work');
+          timerFunction(workSliderValue, 'Work');
         }
       }
 
-    }, 1000); // set to 1000 when done testing
+    }, 200); // set to 1000 when done testing
   }
 
 }());
