@@ -72,13 +72,17 @@ $('input').on('change mousemove', function() {
   function timerFunction(timeInMinutes, whichTimer) {
     let seconds = timeInMinutes * 60;
 
-    // progress bar ====================================
-    // start progress bar at 0
-    let progressCounter = 0;
-    // this is the amount to increment the progress bar each second, so that it
-    // is proportional to the countdown timer.
+    /*
+     * Progress Bar
+     *
+     * if countdown time is only 1 minute set progressCounter to -1 so bar does
+     * not go to 101 percent.
+     *
+     * progressIncrementer is the amount to increment the progress bar on every
+     * tick of the countdown. This is proportional to the countdown timer.
+     */
+    let progressCounter = (seconds == 60) ? -1 : 0;
     let progressIncrementer = 100/seconds;
-    // =================================================
 
     countdown = setInterval(() => {
       /**
@@ -99,19 +103,12 @@ $('input').on('change mousemove', function() {
         $('title').text(minutesRemaining + ':' + secondsRemaining);
         seconds--;
 
+        // increment progressCounter
+        progressCounter += progressIncrementer;
 
-        // progress bar ====================================
-        // prevent value for width of progress bar from being rounded above 100
-
-        // try to get rid of this now that we're using Math.trun
-        if (progressCounter > 99)
-          progressCounter = 100;
-        else
-          progressCounter += progressIncrementer;
-
-        console.log(Math.trunc(progressCounter));
+        // Truncate progressCounter value and use it to advance the progress
+        // bar accros the screen
         $('.progressBar').width(Math.trunc(progressCounter)+'%');
-        // =================================================
       }
       else {
         if (whichTimer == 'Work') {
