@@ -102,13 +102,15 @@ $('input').on('change mousemove', function() {
 
         // progress bar ====================================
         // prevent value for width of progress bar from being rounded above 100
+
+        // try to get rid of this now that we're using Math.trun
         if (progressCounter > 99)
           progressCounter = 100;
         else
           progressCounter += progressIncrementer;
 
-        console.log(progressCounter);
-        $('.progressBar').width(progressCounter+'%');
+        console.log(Math.trunc(progressCounter));
+        $('.progressBar').width(Math.trunc(progressCounter)+'%');
         // =================================================
       }
       else {
@@ -132,7 +134,7 @@ $('input').on('change mousemove', function() {
         }
       }
 
-    }, 200); // set to 1000 when done testing
+    }, 1000); // set to 1000 when done testing
   }
 
 }());
