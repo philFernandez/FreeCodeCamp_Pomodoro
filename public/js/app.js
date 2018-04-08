@@ -118,7 +118,7 @@ $('input').on('change mousemove', function() {
           // before changing color
           $('.progressBar').width('0%');
           // change progress bar color to red for break interval
-          $('.progressBar').css('background-color', 'red');
+          $('.progressBar').css('background-color', '#c0392b');
           timerFunction(breakSliderValue, 'Break');
         }
         else {
@@ -127,7 +127,7 @@ $('input').on('change mousemove', function() {
           // before changing color
           $('.progressBar').width('0%');
           // change progress bar color to green for work interval
-          $('.progressBar').css('background-color', 'green');
+          $('.progressBar').css('background-color', '#1e8449');
           timerFunction(workSliderValue, 'Work');
         }
       }

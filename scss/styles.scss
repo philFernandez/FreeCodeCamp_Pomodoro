@@ -170,16 +170,17 @@ div:nth-of-type(5) {
 // this is to be animated via the width property
 // in accordance with the countdown timer (jQuery)
 .progressBar {
-  border: none;
+  border: 0.1rem solid $sliderColor;
   border-radius: 1rem;
-  background-color: green;
+  background-color: #1e8449;
   height: 4rem;
   width: 0%;
 }
 
 .session {
+
   font-size: 3rem;
-  margin: 0 auto;
+  margin: 4rem auto 0 auto;
   text-align: center;
 }
 
