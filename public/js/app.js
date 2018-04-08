@@ -17,14 +17,17 @@ $('input').on('change mousemove', function() {
   if (thisInput.prop('defaultValue') == 25) {
     // so adjust time under work interval slider
     workSliderValue = thisInput.val(); // make assignment to use later in timer
-    $('.column p').text(workSliderValue + ' minutes');
+    let workMinutes = (workSliderValue == 1) ? ' minute' : ' minutes';
+    $('.column p').text(workSliderValue + workMinutes);
   }
   // else if defalut vale is 5 we a listening to the break interval slider
   else {
     // so adjust time under break interval slider
     breakSliderValue = thisInput.val();
-    $('.column2 p').text(breakSliderValue + ' minutes');
+    let breakMinutes = (breakSliderValue == 1) ? ' minute' : ' minutes';
+    $('.column2 p').text(breakSliderValue + breakMinutes);
   }
+
 });
 
 (function() {
