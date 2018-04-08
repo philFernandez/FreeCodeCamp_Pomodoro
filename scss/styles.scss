@@ -69,14 +69,15 @@ input[type=range]::-moz-focus-outer {
 
 
 input[type=range] {
-  // width of container that holds track
-  // works same on all browsers??
+  outline: 0; // gets rid of outline on chrome
   width: 75%;
 }
 
 // apply above mixins to both firefox and chrome
 input {
   -webkit-appearance: none;
+
+
   // chrome/safari
   &::-webkit-slider-runnable-track { @include track }
   &::-webkit-slider-thumb {
