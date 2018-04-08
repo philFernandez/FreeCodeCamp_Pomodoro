@@ -87,7 +87,6 @@ $('input').on('change mousemove', function() {
        * continues to return. when pause becomes false again the timer pics up
        * where it left off.
        */
-      console.log('i do :(');
       if (pause)
         return;
       if (seconds >= 0) {
@@ -136,79 +135,3 @@ $('input').on('change mousemove', function() {
   }
 
 }());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-// button press kicks off pomodoro loop
-$('.buttonContainer').on('click', function() {
-
-  // once timer is started lock both sliders
-  $('input').prop('disabled', true);
-
-  workTime();
-
-});
-
-function workTime() {
-  $('.timer').timer('remove');
-
-  $('.timer').timer({
-    countdown: true,
-    duration: workSliderValue + 's',
-    callback: breakTime
-  });
-}
-
-function breakTime() {
-
-  $('.timer').timer('remove');
-
-  $('.timer').timer({
-    countdown: true,
-    duration: breakSliderValue + 's',
-    callback: workTime
-  });
-}
-
-*/
