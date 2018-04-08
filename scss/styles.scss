@@ -76,9 +76,13 @@ input[type=range] {
 
 // apply above mixins to both firefox and chrome
 input {
+  -webkit-appearance: none;
   // chrome/safari
   &::-webkit-slider-runnable-track { @include track }
-  &::-webkit-slider-thumb { @include thumb }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include thumb
+  }
 
   // firefox
   &::-moz-range-track { @include track }
