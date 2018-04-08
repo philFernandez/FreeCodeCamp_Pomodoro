@@ -70,6 +70,7 @@ input[type=range]::-moz-focus-outer {
 
 input[type=range] {
   outline: 0; // gets rid of outline on chrome
+  background-color: $bodyColor; // gets rid of white background in chrome
   width: 75%;
 }
 
@@ -80,8 +81,10 @@ input {
 
   // chrome/safari
   &::-webkit-slider-runnable-track { @include track }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
+    margin: -0.6rem 0 -0.6rem 0; // make thumb centered in chrome
     @include thumb
   }
 
