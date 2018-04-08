@@ -95,6 +95,7 @@ $('input').on('change mousemove', function() {
         let secondsRemaining = ((seconds % 60) < 10) ? '0' + (seconds % 60) : (seconds % 60);
         let minutesRemaining = Math.floor(seconds/60);
         $('.timer').text(minutesRemaining + ':' + secondsRemaining);
+        $('.session').text(whichTimer);
         $('title').text(minutesRemaining + ':' + secondsRemaining);
         seconds--;
 
