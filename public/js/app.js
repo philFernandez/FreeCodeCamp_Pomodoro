@@ -77,17 +77,24 @@ $('input').on('change mousemove', function() {
   function timerFunction(timeInMinutes, whichTimer) {
     let seconds = timeInMinutes * 60;
 
-    /*
+    /**
      * Progress Bar
      *
      * if countdown time is only 1 minute set progressCounter to -1 so bar does
      * not go to 101 percent.
      *
      * progressIncrementer is the amount to increment the progress bar on every
-     * tick of the countdown. This is proportional to the countdown timer.
+     * tick of the countdown. This is proportional to the countdown timer
+     * duration.
      */
     let progressCounter = (seconds == 60) ? -1 : 0;
     let progressIncrementer = 100/seconds;
+
+    // put border around progress bar here instead of in scss so that there is
+    // not visible border when progress bar is zero'd out
+    $('.progressBar').css('border', '1px solid #b7990d');
+    // show which session countdown is running under progress bar
+    $('.session').text(whichTimer);
 
     countdown = setInterval(() => {
       /**
@@ -104,7 +111,6 @@ $('input').on('change mousemove', function() {
         let secondsRemaining = ((seconds % 60) < 10) ? '0' + (seconds % 60) : (seconds % 60);
         let minutesRemaining = Math.floor(seconds/60);
         $('.timer').text(minutesRemaining + ':' + secondsRemaining);
-        $('.session').text(whichTimer);
         $('title').text('Pomodoro (' + minutesRemaining + ':' + secondsRemaining + ')');
         seconds--;
 

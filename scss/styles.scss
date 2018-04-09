@@ -165,16 +165,16 @@ a {
 div:nth-of-type(5) {
   border: 3px solid black;
   border-radius: 1rem;
-  //box-shadow: $shadow;
+  box-shadow: $shadow;
   padding: 0.3rem;
 }
 
 // this is to be animated via the width property
 // in accordance with the countdown timer (jQuery)
 .progressBar {
-  border: 0.1rem solid $sliderColor;
+  //border: 0.1rem solid $sliderColor;
   border-radius: 1rem;
-  //box-shadow: $shadow;
+  box-shadow: $shadow;
   background-color: #1e8449;
   height: 4rem;
   width: 0%;

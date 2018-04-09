@@ -121,11 +121,12 @@ a {
 div:nth-of-type(5) {
   border: 3px solid black;
   border-radius: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #110b11;
   padding: 0.3rem; }
 
 .progressBar {
-  border: 0.1rem solid #b7990d;
   border-radius: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #110b11;
   background-color: #1e8449;
   height: 4rem;
   width: 0%; }
