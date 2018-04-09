@@ -163,7 +163,9 @@ a {
 // .progressBar div below. This is just for
 // keeping a static border
 div:nth-of-type(5) {
-  border: 3px solid black;
+  //visibility: hidden;
+  border: 0.1rem solid $allTypefaceColor;
+  background-color: #485956;
   border-radius: 1rem;
   box-shadow: $shadow;
   padding: 0.3rem;

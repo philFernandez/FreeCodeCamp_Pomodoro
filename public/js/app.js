@@ -1,3 +1,5 @@
+// make progress bar hidden until countdown starts
+$('.progressBarContainer').hide();
 
 // get current value of work interval slider
 var workSliderValue = $('.column input').val();
@@ -42,13 +44,21 @@ $('input').on('change mousemove', function() {
   let newSliderValues = true;
 
   $('input').change(() => {
+
+    // when slider is changed while timer is paused reset progress bar width to
+    // 0, reset color to green because we will be starting new pomodoro in work
+    // session, and hide the progress bar all together until the countdown is
+    // started back up.
+    $('.progressBar').width('0%');
+    $('.progressBar').css('background-color', '#1e8449');
+    $('.progressBarContainer').hide(200);
+
     // if slider(s) are changed while timer is paused, re-initialize
     // timer, and set flag newSliderValues so buttonContainer click event
     // knows to start a new timer with the new slider values.
-    // And reset progress bar to green to be started over in work session
-    $('.progressBar').css('background-color', '#1e8449');
     clearInterval(countdown);
     newSliderValues = true;
+
   });
 
   $('.buttonContainer').on('click', () => {
@@ -89,6 +99,9 @@ $('input').on('change mousemove', function() {
      */
     let progressCounter = (seconds == 60) ? -1 : 0;
     let progressIncrementer = 100/seconds;
+
+    //$('.progressBarContainer').css('visibility', 'visible');
+    $('.progressBarContainer').show(200);
 
     // put border around progress bar here instead of in scss so that there is
     // not visible border when progress bar is zero'd out
