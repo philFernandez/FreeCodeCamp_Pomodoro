@@ -165,6 +165,7 @@ a {
 div:nth-of-type(5) {
   border: 3px solid black;
   border-radius: 1rem;
+  //box-shadow: $shadow;
   padding: 0.3rem;
 }
 
@@ -173,6 +174,7 @@ div:nth-of-type(5) {
 .progressBar {
   border: 0.1rem solid $sliderColor;
   border-radius: 1rem;
+  //box-shadow: $shadow;
   background-color: #1e8449;
   height: 4rem;
   width: 0%;

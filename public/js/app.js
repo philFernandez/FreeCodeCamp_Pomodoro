@@ -44,7 +44,9 @@ $('input').on('change mousemove', function() {
   $('input').change(() => {
     // if slider(s) are changed while timer is paused, re-initialize
     // timer, and set flag newSliderValues so buttonContainer click event
-    // knows to start a new timer with the new slider values
+    // knows to start a new timer with the new slider values.
+    // And reset progress bar to green to be started over in work session
+    $('.progressBar').css('background-color', '#1e8449');
     clearInterval(countdown);
     newSliderValues = true;
   });
@@ -103,7 +105,7 @@ $('input').on('change mousemove', function() {
         let minutesRemaining = Math.floor(seconds/60);
         $('.timer').text(minutesRemaining + ':' + secondsRemaining);
         $('.session').text(whichTimer);
-        $('title').text(minutesRemaining + ':' + secondsRemaining);
+        $('title').text('Pomodoro (' + minutesRemaining + ':' + secondsRemaining + ')');
         seconds--;
 
         // increment progressCounter
