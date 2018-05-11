@@ -51,6 +51,7 @@ $('input').on('change mousemove', function() {
     // started back up.
     $('.progressBar').width('0%');
     $('.progressBar').css('background-color', '#1e8449');
+    $('.session').text('');
     $('.progressBarContainer').hide(200);
 
     // if slider(s) are changed while timer is paused, re-initialize
